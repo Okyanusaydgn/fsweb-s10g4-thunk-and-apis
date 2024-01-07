@@ -1,22 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore } from "redux";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { myReducer } from './reducers';
+import { store } from "./store/store";
+import App from "./App";
+import "./index.css";
+//  App.js gibi internal dosyalar ve css dosyaları import kısımlarında en son kısımda yer almaktadır.
 
-const depo = createStore(myReducer);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={depo}>
+  <Provider store={store}>
     <BrowserRouter>
-      <>
-        <App />
-      </>
+      <App />
     </BrowserRouter>
   </Provider>
 );
